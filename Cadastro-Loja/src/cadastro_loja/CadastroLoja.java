@@ -12,13 +12,13 @@ package cadastro_loja;
 public class CadastroLoja {
     public static MaquinaEstadoConsole estadoConsole;
     /**
-     * @param args the command line arguments
+     * @param args
      */
     public static void main(String[] args) {
        estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getClasse();        
         Boolean saida = false;
-        while (!saida){
-            saida = estadoConsole.Executa();
+        while (!saida){            
+            saida = estadoConsole.Executa();            
         }
     }
     

@@ -9,17 +9,19 @@ import java.util.Scanner;
 
 /**
  *
- * @author Alipio
+ * @author 082170001
  */
-public class MenuPrincipal extends MaquinaEstadoConsole {
-    @Override
+public class MenuVendedor extends MaquinaEstadoConsole {
+        @Override
     public boolean Executa(){
         boolean sair = false;
         Scanner in = new Scanner(System.in);
-        System.out.println("Bem-vindo!");
-        System.out.println("Indique a opção desejada!");
+        System.out.println("Menu Vendendor");
+        System.out.println("Indique a opção desejada!");       
         System.out.println("0 - Sair");
-        System.out.println("1 - Login");                  
+        System.out.println("1 - Produtos");
+        System.out.println("2 - Pedidos");
+        System.out.println("3 - Cliente");
         int opcao = in.nextInt();
         in.nextLine();
         switch(opcao)
@@ -28,10 +30,14 @@ public class MenuPrincipal extends MaquinaEstadoConsole {
                 sair = true;
                 break;
             case 1:
-                  cadastro_loja.CadastroLoja.estadoConsole = 
-                    EnumEstadoConsole.LOGIN.getClasse();
-                break;           
-        }
-        return sair;
+               
+            case 2:
+                sair = true;
+                break;
+            case 3:
+                sair = true;
+                break;             
+         }
+        return sair;     
     }
 }

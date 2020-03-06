@@ -9,8 +9,6 @@ package cadastro_loja;
  *
  * @author Alipio
  */
-public abstract class  MaquinaEstadoConsole {
-    public abstract boolean Executa();
-            
+public class EnviaCRUD {
+    public static Cadastrar 
 }
-

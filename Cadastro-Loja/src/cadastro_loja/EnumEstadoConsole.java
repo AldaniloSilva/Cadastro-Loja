@@ -10,15 +10,15 @@ package cadastro_loja;
  * @author Alipio
  */
 public enum EnumEstadoConsole {
-    MENU_PRINCIPAL,
-    MENU_LOGIN,
-    MENU_CADASTRO,
-    MENU_VENDEDOR,
-    MENU_GERENTE,
-    MENU_CLIENTE,
-    MENU_PEDIDO,
-    MENU_PRODUTO,
-    MENU_FUNCIONARIO;     
+    MENU_PRINCIPAL (new MenuPrincipal()),
+    LOGIN (new EstadoConsoleLogin()),
+    CADASTRO (new MenuCadastro()),
+    //MENU_VENDEDOR,
+    MENU_GERENTE (new MenuGerente());
+    //CADASTRO_CLIENTE,
+    //CADASTRO_PEDIDO,
+    //CADASTRO_PRODUTO,
+    //CADASTRO_FUNCIONARIO;     
     
     private final MaquinaEstadoConsole classe;
     
