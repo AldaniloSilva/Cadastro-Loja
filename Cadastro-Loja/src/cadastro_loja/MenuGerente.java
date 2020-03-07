@@ -32,17 +32,17 @@ public class MenuGerente extends MaquinaEstadoConsole {
                 sair = true;
                 break;
             case 1:
-                sair = true;
-                break;              
+                cadastro_loja.CadastroLoja.estadoConsole = 
+                        EnumEstadoConsole.CADASTRO.getClasse();        
             case 2:
-                sair = true;
-                break;
+                cadastro_loja.CadastroLoja.estadoConsole = 
+                        EnumEstadoConsole.CADASTRO.getClasse(); 
             case 3:
-                sair = true;
-                break;             
+                cadastro_loja.CadastroLoja.estadoConsole = 
+                        EnumEstadoConsole.CADASTRO.getClasse();             
             case 4:
-                sair = true;
-                break;              
+                cadastro_loja.CadastroLoja.estadoConsole = 
+                        EnumEstadoConsole.CADASTRO.getClasse();           
          }
         return sair;     
     }

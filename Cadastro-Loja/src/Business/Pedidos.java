@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package Business;
 
 /**
  *
- * @author Alipio
+ * @author 082170001
  */
-public class EnviaCRUD {
-    //public static Cadastrar 
+public class Pedidos {
+    
 }
