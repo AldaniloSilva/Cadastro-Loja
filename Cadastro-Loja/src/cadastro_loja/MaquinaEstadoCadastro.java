@@ -5,32 +5,32 @@
  */
 package cadastro_loja;
 
+import java.util.Scanner;
+
 /**
  *
  * @author 082170001
  */
-public class  MaquinaEstadoCadastro {
-     boolean sair = false;
-     public boolean Cadastrar(String Tipo) 
-     {
-         System.out.println("Digite o nome do" + Tipo);
-         return sair;
-     }
-     
-     public boolean Alterar (String Tipo)
-     {
-         System.out.println("Digite o nome do" + Tipo);
-         return sair;
-     }    
-     
-     public boolean Deletar(String Tipo)
-     {
-         System.out.println("Digite o código do " + Tipo);
-         return sair;
-     }
-     public boolean Incluir(String Tipo)
-     {
-        System.out.println("Digite o nome do " + Tipo);
-        return sair;  
-     }
+public abstract class MaquinaEstadoCadastro {
+
+    Scanner entrada = new Scanner(System.in);
+
+    public abstract void Incluir();
+
+    public abstract void Excluir();
+
+    public abstract void Alterar();
+    
+    public abstract void Listar();
+
+    protected int SolicitaCodigo(String atributo) {
+        int codigo;
+        System.out.print("Digite o código do " + atributo + ": ");
+        codigo = entrada.nextInt();
+        entrada.nextLine();
+        return codigo;
+    }    
+
+    
+    //public abstract void Listar (String tabela) {}
 }

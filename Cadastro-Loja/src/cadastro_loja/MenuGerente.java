@@ -12,13 +12,15 @@ import java.util.Scanner;
  * @author 082170001
  */
 public class MenuGerente extends MaquinaEstadoConsole {
-     @Override
-    public boolean Executa(){
+
+    @Override
+    public boolean Executa() {
         boolean sair = false;
         Scanner in = new Scanner(System.in);
-        System.out.println();
+        LimpaTela.Clear();
+        System.out.println();        
         System.out.println("*** Menu Gerente****");
-        System.out.println("Indique a opção desejada:");       
+        System.out.println("Indique a opção desejada:");
         System.out.println("0 - Sair");
         System.out.println("1 - Produtos");
         System.out.println("2 - Pedidos");
@@ -26,24 +28,35 @@ public class MenuGerente extends MaquinaEstadoConsole {
         System.out.println("4 - Funcionários");
         int opcao = in.nextInt();
         in.nextLine();
-        switch(opcao)
-        {
+        switch (opcao) {
             case 0:
                 sair = true;
                 break;
             case 1:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.CADASTRO.getClasse();        
+                cadastro_loja.CadastroLoja.estadoCadastro
+                        = EnumEstadoCadastro.PRODUTO.getClasse();
+                cadastro_loja.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.CADASTRO.getClasse();
+                break;
             case 2:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.CADASTRO.getClasse(); 
+                cadastro_loja.CadastroLoja.estadoCadastro
+                        = EnumEstadoCadastro.PEDIDO.getClasse();
+                cadastro_loja.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.CADASTRO.getClasse();
+                break;
             case 3:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.CADASTRO.getClasse();             
+                cadastro_loja.CadastroLoja.estadoCadastro
+                        = EnumEstadoCadastro.CLIENTE.getClasse();
+                cadastro_loja.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.CADASTRO.getClasse();
+                break;
             case 4:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.CADASTRO.getClasse();           
-         }
-        return sair;     
+                cadastro_loja.CadastroLoja.estadoCadastro
+                        = EnumEstadoCadastro.FUNCIONARIO.getClasse();
+                cadastro_loja.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.CADASTRO.getClasse();
+                break;
+        }
+        return sair;
     }
 }

@@ -30,20 +30,16 @@ public class MenuCadastro extends MaquinaEstadoConsole {
                 sair = true;
                 break;
             case 1:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.MENU_GERENTE.getClasse();
+                cadastro_loja.CadastroLoja.estadoCadastro.Incluir(); 
                 break;              
             case 2:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.MENU_GERENTE.getClasse();
+                cadastro_loja.CadastroLoja.estadoCadastro.Alterar();
                 break;
             case 3:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.MENU_GERENTE.getClasse();
+                cadastro_loja.CadastroLoja.estadoCadastro.Excluir();
                 break;             
             case 4:
-                cadastro_loja.CadastroLoja.estadoConsole = 
-                        EnumEstadoConsole.MENU_GERENTE.getClasse();
+                cadastro_loja.CadastroLoja.estadoCadastro.Listar();                
                 break;             
         }
         return sair;     

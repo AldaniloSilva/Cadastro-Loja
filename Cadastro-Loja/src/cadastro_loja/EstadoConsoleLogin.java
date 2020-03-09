@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.listaFunc;
+import Business.Funcionario;
+
 
 /**
  *
@@ -32,8 +36,8 @@ public class EstadoConsoleLogin extends MaquinaEstadoConsole {
         // TODO - Validação de senha
         //Acesso acesso = new Acesso();
         //boolean senhaValida = acesso.validaUsuario(user);
-        if (ValidaSenha(user,senha)){
-            
+        //if (ValidaSenha(user,senha)){
+          if (TestaUsuario(user,senha)){  
             cadastro_loja.CadastroLoja.estadoConsole = 
                     EnumEstadoConsole.MENU_GERENTE.getClasse();
                 return sair;
@@ -45,8 +49,19 @@ public class EstadoConsoleLogin extends MaquinaEstadoConsole {
         }
         }            
         
+     /*
      private boolean ValidaSenha(String user, String login) {
+         
         return user.equals("alipio") && (login.equals("123"));
-     }
+     }*/
 
+     private boolean TestaUsuario (String user, String senha) {
+         for(Funcionario item : listaFunc){
+             if(item.getNome().equals(user) && item.getSenha().equals(senha))
+                     return true;            
+         }
+         return false;            
+     }
+     
+    
 }
