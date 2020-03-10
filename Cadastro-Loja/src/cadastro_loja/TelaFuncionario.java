@@ -6,6 +6,7 @@
 package cadastro_loja;
 
 import Business.Funcionario;
+import static DAO.EntidadeDAO.listaFunc;
 
 //import java.util.Scanner;
 /**
@@ -27,7 +28,7 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
         System.out.println("Digite o cargo:");
         System.out.println("0 -> Gerente");
-        System.out.println("1 - Vendedor");
+        System.out.println("1 -> Vendedor");
 
         funcionario.setCargo(entrada.nextInt());
         entrada.nextLine();
@@ -35,6 +36,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         System.out.println("Digite a senha");
 
         funcionario.setSenha(entrada.nextLine());
+        
+        funcionario.setCodigo(listaFunc.size()+1);
+        
+        System.out.println(listaFunc.size()+1);
     }
 
     @Override
@@ -52,7 +57,7 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
         System.out.println("Digite o cargo:");
         System.out.println("0 -> Gerente");
-        System.out.println("1 - Vendedor");
+        System.out.println("1 -> Vendedor");
 
         funcionario.setCargo(entrada.nextInt());
         entrada.nextLine();

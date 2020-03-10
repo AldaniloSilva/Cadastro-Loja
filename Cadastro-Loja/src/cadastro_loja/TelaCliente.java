@@ -25,7 +25,7 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         //Deverá ser implementado um método para pegar o próximo número
         System.out.println("Digite o nome do " + atributo + ":");
         cliente.setNome(entrada.nextLine());
-        System.out.println(cliente.toString());
+        System.out.println();
         //EntidadeDAO.EscreverEmAqruivo();
     }
 

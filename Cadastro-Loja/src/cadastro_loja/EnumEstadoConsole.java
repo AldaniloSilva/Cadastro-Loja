@@ -13,7 +13,7 @@ public enum EnumEstadoConsole {
     MENU_PRINCIPAL (new MenuPrincipal()),
     LOGIN (new EstadoConsoleLogin()),
     CADASTRO (new MenuCadastro()),
-    //MENU_VENDEDOR,
+    MENU_VENDEDOR (new MenuVendedor()),
     MENU_GERENTE (new MenuGerente());
     //CADASTRO_CLIENTE,
     //CADASTRO_PEDIDO,

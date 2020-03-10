@@ -19,7 +19,9 @@ import Business.Cliente;
 import Business.Funcionario;
 import Business.Pedidos;
 import Business.Produto;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.LineNumberReader;
 import java.util.regex.Pattern;
 
 /**
@@ -42,8 +44,8 @@ public class EntidadeDAO {
         }
     }
 
-    private static void ConverterFuncionario(String[] dados) {
-
+    private static void LeFuncionario(String[] dados) {
+        //Esse método trabalha com a leitura de dados
         Funcionario funcionario = new Funcionario();
         funcionario.setCodigo(Integer.parseInt(dados[0]));
         funcionario.setNome(dados[1]);
@@ -51,6 +53,12 @@ public class EntidadeDAO {
         funcionario.setSenha(dados[3]);
         listaFunc.add(funcionario);
     }
+
+    /*
+    private static String EscreveFuncionario (Funcionario func) {
+        //Esse método trabalha com escrita de dados
+        String dados;        
+    }*/
 
     public static String Read(String arquivo) {
         String conteudo = "";
@@ -63,14 +71,16 @@ public class EntidadeDAO {
             try {
                 linha = lerArq.readLine();
                 sentenca = linha.split(Pattern.quote("|"));
-                ConverterFuncionario(sentenca);
+                LeFuncionario(sentenca);
 
                 while (linha != null) {
                     //conteudo += linha+"\r\n";                    
                     linha = lerArq.readLine();
-                    if(linha != null)
+                    if (linha != null) {
                         sentenca = linha.split(Pattern.quote("|"));
-                    ConverterFuncionario(sentenca);
+                        LeFuncionario(sentenca);
+                    }
+                    
                 }
                 arq.close();
             } catch (IOException ex) {
