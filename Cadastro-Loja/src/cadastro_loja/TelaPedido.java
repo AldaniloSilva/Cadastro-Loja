@@ -19,11 +19,15 @@ public class TelaPedido extends MaquinaEstadoCadastro {
 
     @Override
     public void Incluir() {
-        System.out.println("***** Incluir " + atributo + " ******" );
+        System.out.println("***** Incluir " + atributo + " ******");
         //pedido.setCodigo(SolicitaCodigo(atributo));
         //Deverá ser implementado um método para pegar o próximo número
         System.out.println("Digite o código do produto:");
         pedido.setCodigo_produto(entrada.nextInt());
+        entrada.nextLine();
+
+        System.out.println("Digite a quantidade:");
+        pedido.setQuantidade(entrada.nextInt());
         entrada.nextLine();
 
         System.out.println("Digite o código do cliente:");
@@ -37,7 +41,7 @@ public class TelaPedido extends MaquinaEstadoCadastro {
 
     @Override
     public void Excluir() {
-        System.out.println("***** Excluir " + atributo + " ******" );
+        System.out.println("***** Excluir " + atributo + " ******");
         int codigo = SolicitaCodigo(atributo);
     }
 

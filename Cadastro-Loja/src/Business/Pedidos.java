@@ -9,8 +9,21 @@ package Business;
  *
  * @author 082170001
  */
-public class Pedidos  {
+public class Pedidos {
+
     private int codigo_pedido;
+    private int codigo_produto;
+    private int codigo_cliente;
+    private int codigo_funcionario;
+    private int quantidade;
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 
     public int getCodigo_pedido() {
         return codigo_pedido;
@@ -19,9 +32,6 @@ public class Pedidos  {
     public void setCodigo_pedido(int codigo_pedido) {
         this.codigo_pedido = codigo_pedido;
     }
-    private int codigo_produto;
-    private int codigo_cliente;
-    private int codigo_funcionario;
 
     public int getCodigo_produto() {
         return codigo_produto;

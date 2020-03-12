@@ -6,6 +6,10 @@
 package cadastro_loja;
 
 import DAO.EntidadeDAO;
+import DAO.LeituraCliente;
+import DAO.LeituraFuncionario;
+import DAO.LeituraPedidos;
+import DAO.LeituraProduto;
 import java.io.IOException;
 /**
  *
@@ -17,14 +21,16 @@ public class CadastroLoja {
     public static MaquinaEstadoConsole telaUsuario;
     /**
      * @param args
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         
-        String texto = EntidadeDAO.Read("funcionario.txt");
-        if(texto.isEmpty())
-            System.out.println("Erro ao ler arquivo!");
-        else
-            System.out.println(texto);
+        EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
+        EntidadeDAO.Read("Cliente.txt", new LeituraCliente());
+        EntidadeDAO.Read("Pedidos.txt", new LeituraPedidos());
+        EntidadeDAO.Read("Produto.txt", new LeituraProduto());
+        
+      
                 
         //System.out.println(EntidadeDAO.RetornaUltimoId("funcionario.txt"));
         

@@ -5,12 +5,8 @@
  */
 package cadastro_loja;
 
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import DAO.EntidadeDAO;
-import static DAO.EntidadeDAO.listaFunc;
+import static DAO.LeituraFuncionario.listaFunc;
 import Business.Funcionario;
 import Business.Acesso;
 

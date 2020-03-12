@@ -6,7 +6,7 @@
 package cadastro_loja;
 
 import Business.Funcionario;
-import static DAO.EntidadeDAO.listaFunc;
+import static DAO.LeituraFuncionario.listaFunc;
 
 //import java.util.Scanner;
 /**
@@ -37,9 +37,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
         funcionario.setSenha(entrada.nextLine());
         
-        funcionario.setCodigo(listaFunc.size()+1);
+        //funcionario.setCodigo(listaFunc.size()+1);
         
-        System.out.println(listaFunc.size()+1);
+        System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+        
     }
 
     @Override
