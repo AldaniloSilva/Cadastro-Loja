@@ -9,9 +9,9 @@ package Business;
  *
  * @author 082170001
  */
-public class Pedidos {
+public class Pedidos  extends Entidade {
 
-    private int codigo_pedido;
+    private int codigo;
     private int codigo_produto;
     private int codigo_cliente;
     private int codigo_funcionario;
@@ -26,11 +26,11 @@ public class Pedidos {
     }
 
     public int getCodigo_pedido() {
-        return codigo_pedido;
+        return codigo;
     }
 
     public void setCodigo_pedido(int codigo_pedido) {
-        this.codigo_pedido = codigo_pedido;
+        this.codigo = codigo_pedido;
     }
 
     public int getCodigo_produto() {

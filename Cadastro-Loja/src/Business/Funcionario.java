@@ -9,7 +9,7 @@ package Business;
  *
  * @author 082170001
  */
-public class Funcionario  {
+public class Funcionario  extends Entidade{
     
     private int codigo;
     private int cargo;

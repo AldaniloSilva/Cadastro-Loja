@@ -22,6 +22,8 @@ public abstract class MaquinaEstadoCadastro {
     public abstract void Alterar();
     
     public abstract void Listar();
+    
+    //public abstract String ToString();
 
     protected int SolicitaCodigo(String atributo) {
         int codigo;

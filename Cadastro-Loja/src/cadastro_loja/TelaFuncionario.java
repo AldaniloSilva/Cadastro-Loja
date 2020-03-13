@@ -6,6 +6,10 @@
 package cadastro_loja;
 
 import Business.Funcionario;
+import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.Leitura;
+import DAO.LeituraFuncionario;
 import static DAO.LeituraFuncionario.listaFunc;
 
 //import java.util.Scanner;
@@ -39,7 +43,19 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         
         //funcionario.setCodigo(listaFunc.size()+1);
         
-        System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+        //System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+        
+        
+        funcionario.setCodigo((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+        
+        funcionario.setCodigo(Leitura.IncluiId(listaFunc));
+        
+        
+        EscreverEmAqruivo("funcionario.txt",ToString(funcionario));
+        EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
+        
+        
+        
         
     }
 
@@ -75,6 +91,12 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         System.out.println("Vamos listar todo conteudo da lista de "
                 + atributo);
         System.out.println("Método será implementado em breve");
+    }
+    
+   
+    public String ToString (Funcionario func) {
+        return func.getCodigo() + "|" + func.getNome() + "|" + func.getCargo()
+                + "|" + func.getSenha();        
     }
 
 }

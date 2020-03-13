@@ -23,14 +23,16 @@ public class EntidadeDAO {
     public static void EscreverEmAqruivo(String arquivo, String dados) {
 
         try {
-            try (FileWriter x = new FileWriter("cliente.txt", true)) {
-                String gravaTeste = "Jesus is Perfect.\r\n";
-                x.write(gravaTeste);
+            try (FileWriter x = new FileWriter(arquivo, true)) {
+                //String gravaTeste = ;
+                x.write(dados +"\r\n");
             }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
+    
+    //public static int ProximoId(){};
 /*
     private static void LeFuncionario(String[] dados) {
         //Esse método trabalha com a leitura de dados

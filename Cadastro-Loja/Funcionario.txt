@@ -1,2 +1,5 @@
 1|alipio|0|123a
 2|bob|1|123
+3|carlos|1|123
+4|denize|1|789
+5|roberto|0|147

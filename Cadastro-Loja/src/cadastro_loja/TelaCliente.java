@@ -7,6 +7,9 @@ package cadastro_loja;
 
 import Business.Cliente;
 import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.LeituraCliente;
+import static DAO.LeituraCliente.listaCliente;
 //import java.util.Scanner;
 
 /**
@@ -27,12 +30,26 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         cliente.setNome(entrada.nextLine());
         System.out.println();
         //EntidadeDAO.EscreverEmAqruivo();
+        
+        int numero  = ((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
+        
+        System.out.println(numero);
+                
+        cliente.setCodigo((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
+        
+        
+        
+        
+        
+        EscreverEmAqruivo("cliente.txt",ToString(cliente));
+        EntidadeDAO.Read("funcionario.txt", new LeituraCliente());
     }
 
     @Override
     public void Excluir() {
         System.out.println("***** Excluir " + atributo + " ******");
         int codigo = SolicitaCodigo(atributo);
+        
     }
 
     @Override
@@ -51,5 +68,9 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         System.out.println("Vamos listar todo conteudo da lista de "
                 + atributo);
         System.out.println("Método será implementado em breve");
+    }
+    
+     public String ToString (Cliente cliente) {
+        return cliente.getCodigo() + "|" + cliente.getNome();        
     }
 }

@@ -25,5 +25,7 @@ public class LeituraCliente extends Leitura {
         cliente.setNome(dados[1]);
         listaCliente.add(cliente);
     }
+    
+
 
 }

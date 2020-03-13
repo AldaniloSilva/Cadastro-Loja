@@ -9,7 +9,7 @@ package Business;
  *
  * @author Alipio
  */
-public class Cliente {
+public class Cliente extends Entidade {
     private int codigo;
     private String nome;
 
