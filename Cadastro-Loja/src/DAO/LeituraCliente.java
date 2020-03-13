@@ -6,6 +6,7 @@
 package DAO;
 
 import Business.Cliente;
+import Business.Entidade;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class LeituraCliente extends Leitura {
 
-    public static List<Cliente> listaCliente = new ArrayList<>();
+    public static List<Entidade> listaCliente = new ArrayList<>();
 
     @Override
 

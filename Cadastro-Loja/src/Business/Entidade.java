@@ -20,5 +20,6 @@ public class Entidade {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
+
+
 }

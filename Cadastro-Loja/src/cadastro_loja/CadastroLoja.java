@@ -5,6 +5,7 @@
  */
 package cadastro_loja;
 
+import Business.Entidade;
 import DAO.EntidadeDAO;
 import DAO.LeituraCliente;
 import DAO.LeituraFuncionario;
@@ -19,6 +20,7 @@ public class CadastroLoja {
     public static MaquinaEstadoConsole estadoConsole;
     public static MaquinaEstadoCadastro estadoCadastro;
     public static MaquinaEstadoConsole telaUsuario;
+    public static Entidade classeEntidade;
     /**
      * @param args
      * @throws java.io.IOException

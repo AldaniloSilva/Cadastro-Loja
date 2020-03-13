@@ -5,10 +5,33 @@
  */
 package Business;
 
+import java.util.ArrayList;
+import java.util.List;
+import Business.Funcionario;
+import Business.Produto;
+
 /**
  *
  * @author 082170001
  */
-public class EnumEntidade {
-    
+public enum EnumEntidade {
+
+    PRODUTO (new ArrayList()),
+    FUNCIONARIO(),
+    PEDIDO(),
+    CLIENTE();
+    //public static List<Entidade> listaCliente = new ArrayList<>();
+
+    private final List<Entidade> lista;
+
+    EnumEntidade(List<Entidade> lista) {
+        this.lista = lista;
+    }
+
+    public Entidade getClasse() {
+        return this.lista;
+    }
+
+}
+
 }

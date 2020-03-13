@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static DAO.LeituraFuncionario.listaFunc;
 import Business.Funcionario;
 import Business.Acesso;
+import Business.Entidade;
 
 /**
  *
@@ -54,10 +55,17 @@ public class EstadoConsoleLogin extends MaquinaEstadoConsole {
          
         return user.equals("alipio") && (login.equals("123"));
      }*/
+    
+    //Fornecedor fornecedor = (Fornecedor) objeto;
+    
     private boolean TestaUsuario(String user, String senha) {
         for (Funcionario item : listaFunc) {
+            //item = new Funcionario();
+            
             if (item.getNome().equals(user) && item.getSenha().equals(senha)) {
                 acesso = item.getCargo();
+                
+                
                 return true;
             }
         }

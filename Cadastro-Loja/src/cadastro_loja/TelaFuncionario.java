@@ -5,6 +5,8 @@
  */
 package cadastro_loja;
 
+import Business.Entidade;
+import Business.EnumEntidade;
 import Business.Funcionario;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
@@ -24,7 +26,7 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
     @Override
     public void Incluir() {
-        System.out.println("***** Incluir " + atributo + " ******" );
+        System.out.println("***** Incluir " + atributo + " ******");
         //.setCodigo(SolicitaCodigo(atributo));
         //Deverá ser implementado um método para pegar o próximo número
         System.out.println("Digite o nome do " + atributo);
@@ -40,28 +42,24 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         System.out.println("Digite a senha");
 
         funcionario.setSenha(entrada.nextLine());
-        
+
         //funcionario.setCodigo(listaFunc.size()+1);
-        
         //System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
-        
-        
-        funcionario.setCodigo((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
-        
+        funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
+
+        cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
+        cadastro_loja.CadastroLoja.classeEntidade = funcionario;
+
         funcionario.setCodigo(Leitura.IncluiId(listaFunc));
-        
-        
-        EscreverEmAqruivo("funcionario.txt",ToString(funcionario));
+
+        EscreverEmAqruivo("funcionario.txt", ToString(funcionario));
         EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
-        
-        
-        
-        
+
     }
 
     @Override
     public void Excluir() {
-        System.out.println("***** Excluir " + atributo + " ******" );
+        System.out.println("***** Excluir " + atributo + " ******");
         int codigo = SolicitaCodigo(atributo);
     }
 
@@ -92,11 +90,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
                 + atributo);
         System.out.println("Método será implementado em breve");
     }
-    
-   
-    public String ToString (Funcionario func) {
+
+    public String ToString(Funcionario func) {
         return func.getCodigo() + "|" + func.getNome() + "|" + func.getCargo()
-                + "|" + func.getSenha();        
+                + "|" + func.getSenha();
     }
 
 }

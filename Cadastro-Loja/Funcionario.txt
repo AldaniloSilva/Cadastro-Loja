@@ -3,3 +3,4 @@
 3|carlos|1|123
 4|denize|1|789
 5|roberto|0|147
+6|Edu|0|123e

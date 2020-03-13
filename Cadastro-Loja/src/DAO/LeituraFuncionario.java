@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Business.Entidade;
 import Business.Funcionario;
 //import static DAO.EntidadeDAO.listaFunc;
 import java.util.ArrayList;
