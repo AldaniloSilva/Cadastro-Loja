@@ -22,7 +22,8 @@ public class LeituraProduto extends Leitura {
     public void LerArquivo(String[] dados){
         Produto produto = new Produto();
         produto.setCodigo(Integer.parseInt(dados[0]));
-        produto.setDescricao(dados[1]);        
+        produto.setDescricao(dados[1]);
+        listaProduto.add(produto);
     }
     
 }

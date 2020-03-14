@@ -21,4 +21,12 @@ public abstract class Acesso {
             return EnumEstadoConsole.MENU_VENDEDOR.getClasse();            
     }
     
+    public static String RetornaCargo (int numero) {
+        if (numero == 0)
+            return "Gerente";
+        else
+            return "Vendedor";
+                    
+    }
+    
 }

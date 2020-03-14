@@ -8,6 +8,7 @@ package UI;
 import Business.Funcionario;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraFuncionario;
 import static DAO.LeituraFuncionario.listaFunc;
@@ -25,8 +26,7 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
     @Override
     public void Incluir() {
         System.out.println("***** Incluir " + atributo + " ******");
-        //.setCodigo(SolicitaCodigo(atributo));
-        //Deverá ser implementado um método para pegar o próximo número
+
         System.out.println("Digite o nome do " + atributo);
         funcionario.setNome(entrada.nextLine());
 
@@ -43,8 +43,8 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
         funcionario.setCodigo(Leitura.IncluiId(listaFunc));
 
-        EscreverEmAqruivo("funcionario.txt", ToString(funcionario));
-        EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
+        EscreverEmAqruivo(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), ToString(funcionario));
+        EntidadeDAO.Read(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), new LeituraFuncionario());
     }
 
     @Override
@@ -75,10 +75,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
     @Override
     public void Listar() {
-        //Provavel que precisará de um retorno
-        System.out.println("Vamos listar todo conteudo da lista de "
-                + atributo);
-        System.out.println("Método será implementado em breve");
+        //Aqui estamos aproveitando o mesmo EnumArquivo para ajudar
+        //Na escolha da listagem do ListaTela, porém o arquivo não está sendo explorado
+        System.out.println("***** Lista de " + atributo + " ******");
+        Leitura.ListaTela(listaFunc, EnumArquivo.FUNCIONARIO_TXT);        
     }
 
     public String ToString(Funcionario func) {
@@ -88,9 +88,8 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
 }
 
-        //funcionario.setCodigo(listaFunc.size()+1);
-        //System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
-        //funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
-
-        //cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
+//funcionario.setCodigo(listaFunc.size()+1);
+//System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+//funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
+//cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
         //cadastro_loja.CadastroLoja.classeEntidade = funcionario;

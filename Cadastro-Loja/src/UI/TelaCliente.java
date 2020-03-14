@@ -8,6 +8,7 @@ package UI;
 import Business.Cliente;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraCliente;
 import static DAO.LeituraCliente.listaCliente;
@@ -40,8 +41,8 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         
         cliente.setCodigo(Leitura.IncluiId(listaCliente));
 
-        EscreverEmAqruivo("cliente.txt", ToString(cliente));
-        EntidadeDAO.Read("cliente.txt", new LeituraCliente());    
+        EscreverEmAqruivo(EnumArquivo.CLIENTE_TXT.getNameFile(), ToString(cliente));
+        EntidadeDAO.Read(EnumArquivo.CLIENTE_TXT.getNameFile(), new LeituraCliente());    
  
     }
 
@@ -63,11 +64,9 @@ public class TelaCliente extends MaquinaEstadoCadastro {
 
     @Override
     public void Listar() {
-        System.out.println("***** Listar " + atributo + " ******");
+        System.out.println("***** Lista de " + atributo + " ******");
         //Provavel que precisará de um retorno
-        System.out.println("Vamos listar todo conteudo da lista de "
-                + atributo);
-        System.out.println("Método será implementado em breve");
+        Leitura.ListaTela(listaCliente, EnumArquivo.CLIENTE_TXT);
     }
     
      public String ToString (Cliente cliente) {

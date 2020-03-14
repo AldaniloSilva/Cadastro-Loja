@@ -8,6 +8,7 @@ package UI;
 import Business.Produto;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraCliente;
 import DAO.LeituraProduto;
@@ -22,29 +23,29 @@ public class TelaProduto extends MaquinaEstadoCadastro {
 
     String atributo;// = "produto";
     Produto produto = new Produto();
-    
-    public TelaProduto(){
-       this.atributo = "produto";
-}
+
+    public TelaProduto() {
+        this.atributo = "produto";
+    }
 
     @Override
     public void Incluir() {
-        System.out.println("***** Incluir " + atributo + " ******" );
+        System.out.println("***** Incluir " + atributo + " ******");
         //produto.setCodigo(SolicitaCodigo(atributo));
         //Deverá ser implementado um método para pegar o próximo número
         System.out.println("Digite a descrição do " + atributo + ":");
         produto.setDescricao(entrada.nextLine());
-        
+
         produto.setCodigo(Leitura.IncluiId(listaProduto));
 
-        EscreverEmAqruivo("produto.txt", ToString(produto));
-        EntidadeDAO.Read("produto.txt", new LeituraProduto()); 
+        EscreverEmAqruivo(EnumArquivo.PRODUTO_TXT.getNameFile(), ToString(produto));
+        EntidadeDAO.Read(EnumArquivo.PRODUTO_TXT.getNameFile(), new LeituraProduto());
 
     }
 
     @Override
     public void Excluir() {
-        System.out.println("***** Excluir " + atributo + " ******" );
+        System.out.println("***** Excluir " + atributo + " ******");
         int codigo = SolicitaCodigo(atributo);
     }
 
@@ -56,18 +57,16 @@ public class TelaProduto extends MaquinaEstadoCadastro {
         System.out.println("Digite a descrição do " + atributo + ":");
         produto.setDescricao(entrada.nextLine());
     }
-    
-    @Override
-      public void Listar () {
-        //Provavel que precisará de um retorno
-        System.out.println("Vamos listar todo conteudo da lista de "
-        + atributo);
-        System.out.println("Método será implementado em breve");
-    }
-      
-      public String ToString (Produto produto) {
-            return produto.getCodigo() + "|" + produto.getDescricao();        
-    }
-    
-  }
 
+    @Override
+    public void Listar() {
+        //Provavel que precisará de um retorno
+        System.out.println("***** Lista de " + atributo + " ******");
+        Leitura.ListaTela(listaProduto, EnumArquivo.PRODUTO_TXT);
+    }
+
+    public String ToString(Produto produto) {
+        return produto.getCodigo() + "|" + produto.getDescricao();
+    }
+
+}

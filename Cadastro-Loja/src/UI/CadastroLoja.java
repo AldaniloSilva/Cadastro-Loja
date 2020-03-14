@@ -11,6 +11,7 @@ import DAO.LeituraCliente;
 import DAO.LeituraFuncionario;
 import DAO.LeituraPedidos;
 import DAO.LeituraProduto;
+import DAO.EnumArquivo;
 import java.io.IOException;
 /**
  *
@@ -26,10 +27,10 @@ public class CadastroLoja {
      */
     public static void main(String[] args) throws IOException {
         
-        EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
-        EntidadeDAO.Read("Cliente.txt", new LeituraCliente());
-        EntidadeDAO.Read("Pedidos.txt", new LeituraPedidos());
-        EntidadeDAO.Read("Produto.txt", new LeituraProduto());
+        EntidadeDAO.Read(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), new LeituraFuncionario());
+        EntidadeDAO.Read(EnumArquivo.CLIENTE_TXT.getNameFile(), new LeituraCliente());
+        EntidadeDAO.Read(EnumArquivo.PEDIDO_TXT.getNameFile(), new LeituraPedidos());
+        EntidadeDAO.Read(EnumArquivo.PRODUTO_TXT.getNameFile(), new LeituraProduto());
         
       
                 

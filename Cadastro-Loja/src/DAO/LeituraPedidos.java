@@ -22,7 +22,7 @@ public class LeituraPedidos extends Leitura {
     
     public void LerArquivo(String[] dados){
         Pedidos pedido = new Pedidos();
-        pedido.setCodigo_pedido(Integer.parseInt(dados[0]));
+        pedido.setCodigo(Integer.parseInt(dados[0]));
         pedido.setCodigo_cliente(Integer.parseInt(dados[1]));
         pedido.setCodigo_produto(Integer.parseInt(dados[2]));
         pedido.setCodigo_funcionario(Integer.parseInt(dados[3]));
