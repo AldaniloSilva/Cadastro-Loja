@@ -11,19 +11,9 @@ package Business;
  */
 public class Funcionario  extends Entidade{
     
-    private int codigo;
     private int cargo;
     private String nome;
     private String senha;
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
 
     public int getCargo() {
         return cargo;

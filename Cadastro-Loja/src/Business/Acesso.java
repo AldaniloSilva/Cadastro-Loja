@@ -5,9 +5,8 @@
  */
 package Business;
 
-import cadastro_loja.MaquinaEstadoConsole;
-//import cadastro_loja.CadastroLoja;
-import cadastro_loja.EnumEstadoConsole;
+import UI.MaquinaEstadoConsole;
+import UI.EnumEstadoConsole;
 
 /**
  *

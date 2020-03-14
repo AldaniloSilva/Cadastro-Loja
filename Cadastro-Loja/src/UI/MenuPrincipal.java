@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class MenuPrincipal extends MaquinaEstadoConsole {
                 sair = true;
                 break;
             case 1:
-                  cadastro_loja.CadastroLoja.estadoConsole = 
+                  UI.CadastroLoja.estadoConsole = 
                     EnumEstadoConsole.LOGIN.getClasse();
                 break;           
         }

@@ -16,7 +16,7 @@ import java.util.List;
  * @author Alipio
  */
 public class LeituraFuncionario extends Leitura {
-    public static List<Funcionario> listaFunc = new ArrayList<>();
+    public static List<Entidade> listaFunc = new ArrayList<>();
 
  @Override
     

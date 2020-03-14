@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import Business.Cliente;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.Leitura;
 import DAO.LeituraCliente;
 import static DAO.LeituraCliente.listaCliente;
 //import java.util.Scanner;
@@ -31,18 +32,17 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         System.out.println();
         //EntidadeDAO.EscreverEmAqruivo();
         
-        int numero  = ((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
+        //int numero  = ((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
         
-        System.out.println(numero);
+        //System.out.println(numero);
                 
-        cliente.setCodigo((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
+       // cliente.setCodigo((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
         
-        
-        
-        
-        
-        EscreverEmAqruivo("cliente.txt",ToString(cliente));
-        EntidadeDAO.Read("funcionario.txt", new LeituraCliente());
+        cliente.setCodigo(Leitura.IncluiId(listaCliente));
+
+        EscreverEmAqruivo("cliente.txt", ToString(cliente));
+        EntidadeDAO.Read("cliente.txt", new LeituraCliente());    
+ 
     }
 
     @Override

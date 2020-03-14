@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import java.util.Scanner;
 import static DAO.LeituraFuncionario.listaFunc;
@@ -40,7 +40,7 @@ public class EstadoConsoleLogin extends MaquinaEstadoConsole {
         if (TestaUsuario(user, senha)) {
             //cadastro_loja.CadastroLoja.estadoConsole
             //        = EnumEstadoConsole.MENU_VENDEDOR.getClasse();
-            cadastro_loja.CadastroLoja.estadoConsole
+            UI.CadastroLoja.estadoConsole
                     = Acesso.VerificaAcesso(acesso);
             return sair;
         } //CRUD.estadoConsole = EnumEstadoConsole.MENU_PRINCIPAL.getEstadoMaquina();
@@ -59,13 +59,12 @@ public class EstadoConsoleLogin extends MaquinaEstadoConsole {
     //Fornecedor fornecedor = (Fornecedor) objeto;
     
     private boolean TestaUsuario(String user, String senha) {
-        for (Funcionario item : listaFunc) {
+        for (Entidade item : listaFunc) {
             //item = new Funcionario();
             
-            if (item.getNome().equals(user) && item.getSenha().equals(senha)) {
-                acesso = item.getCargo();
-                
-                
+            if (((Funcionario)item).getNome().equals(user) && 
+                    ((Funcionario)item).getSenha().equals(senha)) {
+                acesso = ((Funcionario)item).getCargo();                
                 return true;
             }
         }

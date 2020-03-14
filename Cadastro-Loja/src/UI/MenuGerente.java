@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import java.util.Scanner;
 
@@ -11,41 +11,51 @@ import java.util.Scanner;
  *
  * @author 082170001
  */
-public class MenuVendedor extends MaquinaEstadoConsole {
-        @Override
-    public boolean Executa(){
+public class MenuGerente extends MaquinaEstadoConsole {
+
+    @Override
+    public boolean Executa() {
         boolean sair = false;
         Scanner in = new Scanner(System.in);
-        System.out.println("*** Menu Vendendor ***");
-        System.out.println("Indique a opção desejada!");       
+        LimpaTela.Clear();
+        System.out.println();        
+        System.out.println("*** Menu Gerente****");
+        System.out.println("Indique a opção desejada:");
         System.out.println("0 - Sair");
         System.out.println("1 - Produtos");
         System.out.println("2 - Pedidos");
         System.out.println("3 - Cliente");
+        System.out.println("4 - Funcionários");
         int opcao = in.nextInt();
         in.nextLine();
-        switch(opcao)
-        {
+        switch (opcao) {
             case 0:
                 sair = true;
+                break;
             case 1:
-                cadastro_loja.CadastroLoja.estadoCadastro
+                UI.CadastroLoja.estadoCadastro
                         = EnumEstadoCadastro.PRODUTO.getClasse();
-                cadastro_loja.CadastroLoja.estadoConsole
+                UI.CadastroLoja.estadoConsole
                         = EnumEstadoConsole.CADASTRO.getClasse();
                 break;
             case 2:
-                cadastro_loja.CadastroLoja.estadoCadastro
+                UI.CadastroLoja.estadoCadastro
                         = EnumEstadoCadastro.PEDIDO.getClasse();
-                cadastro_loja.CadastroLoja.estadoConsole
+                UI.CadastroLoja.estadoConsole
                         = EnumEstadoConsole.CADASTRO.getClasse();
                 break;
             case 3:
-                cadastro_loja.CadastroLoja.estadoCadastro
+                UI.CadastroLoja.estadoCadastro
                         = EnumEstadoCadastro.CLIENTE.getClasse();
-                cadastro_loja.CadastroLoja.estadoConsole
+                UI.CadastroLoja.estadoConsole
                         = EnumEstadoConsole.CADASTRO.getClasse();
-                break;                
+                break;
+            case 4:
+                UI.CadastroLoja.estadoCadastro
+                        = EnumEstadoCadastro.FUNCIONARIO.getClasse();
+                UI.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.CADASTRO.getClasse();
+                break;
         }
         return sair;
     }

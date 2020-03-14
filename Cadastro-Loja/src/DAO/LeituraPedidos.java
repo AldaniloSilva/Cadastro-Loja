@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Business.Entidade;
 import Business.Pedidos;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class LeituraPedidos extends Leitura {
     
-     public static List<Pedidos> listaPedidos = new ArrayList<>();
+     public static List<Entidade> listaPedidos = new ArrayList<>();
      @Override
     
     

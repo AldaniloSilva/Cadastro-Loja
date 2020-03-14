@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import java.util.Scanner;
 
@@ -30,16 +30,16 @@ public class MenuCadastro extends MaquinaEstadoConsole {
                 sair = true;
                 break;
             case 1:
-                cadastro_loja.CadastroLoja.estadoCadastro.Incluir(); 
+                UI.CadastroLoja.estadoCadastro.Incluir(); 
                 break;              
             case 2:
-                cadastro_loja.CadastroLoja.estadoCadastro.Alterar();
+                UI.CadastroLoja.estadoCadastro.Alterar();
                 break;
             case 3:
-                cadastro_loja.CadastroLoja.estadoCadastro.Excluir();
+                UI.CadastroLoja.estadoCadastro.Excluir();
                 break;             
             case 4:
-                cadastro_loja.CadastroLoja.estadoCadastro.Listar();                
+                UI.CadastroLoja.estadoCadastro.Listar();                
                 break;             
         }
         return sair;     

@@ -10,16 +10,9 @@ package Business;
  * @author Alipio
  */
 public class Cliente extends Entidade {
+
     private int codigo;
     private String nome;
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public String getNome() {
         return nome;
@@ -33,5 +26,5 @@ public class Cliente extends Entidade {
     public String toString() {
         return "Cliente{" + "codigo=" + codigo + ", nome=" + nome + '}';
     }
-    
+
 }

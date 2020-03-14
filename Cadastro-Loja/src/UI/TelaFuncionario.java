@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
-import Business.Entidade;
-import Business.EnumEntidade;
 import Business.Funcionario;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
@@ -43,18 +41,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
 
         funcionario.setSenha(entrada.nextLine());
 
-        //funcionario.setCodigo(listaFunc.size()+1);
-        //System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
-        funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
-
-        cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
-        cadastro_loja.CadastroLoja.classeEntidade = funcionario;
-
         funcionario.setCodigo(Leitura.IncluiId(listaFunc));
 
         EscreverEmAqruivo("funcionario.txt", ToString(funcionario));
         EntidadeDAO.Read("funcionario.txt", new LeituraFuncionario());
-
     }
 
     @Override
@@ -97,3 +87,10 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
     }
 
 }
+
+        //funcionario.setCodigo(listaFunc.size()+1);
+        //System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
+        //funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
+
+        //cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
+        //cadastro_loja.CadastroLoja.classeEntidade = funcionario;

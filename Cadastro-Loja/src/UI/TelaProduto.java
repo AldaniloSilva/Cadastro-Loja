@@ -3,9 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import Business.Produto;
+import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreverEmAqruivo;
+import DAO.Leitura;
+import DAO.LeituraCliente;
+import DAO.LeituraProduto;
+import static DAO.LeituraProduto.listaProduto;
 //import java.util.Scanner;
 
 /**
@@ -28,6 +34,11 @@ public class TelaProduto extends MaquinaEstadoCadastro {
         //Deverá ser implementado um método para pegar o próximo número
         System.out.println("Digite a descrição do " + atributo + ":");
         produto.setDescricao(entrada.nextLine());
+        
+        produto.setCodigo(Leitura.IncluiId(listaProduto));
+
+        EscreverEmAqruivo("produto.txt", ToString(produto));
+        EntidadeDAO.Read("produto.txt", new LeituraProduto()); 
 
     }
 
@@ -52,6 +63,10 @@ public class TelaProduto extends MaquinaEstadoCadastro {
         System.out.println("Vamos listar todo conteudo da lista de "
         + atributo);
         System.out.println("Método será implementado em breve");
+    }
+      
+      public String ToString (Produto produto) {
+            return produto.getCodigo() + "|" + produto.getDescricao();        
     }
     
   }

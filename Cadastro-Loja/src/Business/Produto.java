@@ -10,16 +10,8 @@ package Business;
  * @author 082170001
  */
 public class Produto extends Entidade {
-    private int codigo;
+
     private String descricao;
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -28,6 +20,5 @@ public class Produto extends Entidade {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
+
 }

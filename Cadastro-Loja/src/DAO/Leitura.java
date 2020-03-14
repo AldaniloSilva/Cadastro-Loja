@@ -6,6 +6,7 @@
 package DAO;
 
 import Business.Entidade;
+import Business.Funcionario;
 import java.util.List;
 
 /**
@@ -17,8 +18,17 @@ public abstract class Leitura {
     public abstract void LerArquivo(String[] dados);    
    
         public static int IncluiId(List<Entidade> lista){
-            return ((lista.get(lista.size()-1)).getCodigo()+1); 
-            
+            if (lista.isEmpty())
+                return 1;
+            else
+                return ((lista.get(lista.size()-1)).getCodigo()+1);             
     }
+       public static void ListaTela (List<Entidade> lista) {
+           if (lista instanceof Funcionario) {
+               
+           }
+               
+       } 
+       
     
 }

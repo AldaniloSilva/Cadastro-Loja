@@ -4,3 +4,5 @@
 4|denize|1|789
 5|roberto|0|147
 6|Edu|0|123e
+7|fernando|0|789
+8|gustavo|1|147

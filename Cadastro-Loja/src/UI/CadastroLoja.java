@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cadastro_loja;
+package UI;
 
 import Business.Entidade;
 import DAO.EntidadeDAO;
@@ -19,8 +19,7 @@ import java.io.IOException;
 public class CadastroLoja {
     public static MaquinaEstadoConsole estadoConsole;
     public static MaquinaEstadoCadastro estadoCadastro;
-    public static MaquinaEstadoConsole telaUsuario;
-    public static Entidade classeEntidade;
+    public static MaquinaEstadoConsole telaUsuario;   
     /**
      * @param args
      * @throws java.io.IOException
