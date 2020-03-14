@@ -1,0 +1,3 @@
+Produto--> Código: 4 - Descricao: submarino - Sat Mar 14 17:39:33 BRT 2020
+Cliente--> Código: 6 - Nome: fulano - Sat Mar 14 17:41:47 BRT 2020
+Produto--> Código: 5 - Descricao: aviao - Sat Mar 14 17:58:07 BRT 2020

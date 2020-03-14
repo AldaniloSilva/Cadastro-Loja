@@ -7,11 +7,13 @@ package UI;
 
 import Business.Cliente;
 import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreveLog;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
 import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraCliente;
 import static DAO.LeituraCliente.listaCliente;
+import static UI.CadastroLoja.mensagemLog;
 //import java.util.Scanner;
 
 /**
@@ -31,17 +33,14 @@ public class TelaCliente extends MaquinaEstadoCadastro {
         System.out.println("Digite o nome do " + atributo + ":");
         cliente.setNome(entrada.nextLine());
         System.out.println();
-        //EntidadeDAO.EscreverEmAqruivo();
-        
-        //int numero  = ((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
-        
-        //System.out.println(numero);
-                
-       // cliente.setCodigo((listaCliente.get(listaCliente.size()-1)).getCodigo()+1);
-        
+           
         cliente.setCodigo(Leitura.IncluiId(listaCliente));
 
         EscreverEmAqruivo(EnumArquivo.CLIENTE_TXT.getNameFile(), ToString(cliente));
+        System.out.println(atributo + " cadastrado com sucesso!");
+        mensagemLog = "Código: " + Integer.toString(cliente.getCodigo()) + " - " +
+                "Nome: " + cliente.getNome();
+        EscreveLog("Cliente",mensagemLog);
         EntidadeDAO.Read(EnumArquivo.CLIENTE_TXT.getNameFile(), new LeituraCliente());    
  
     }

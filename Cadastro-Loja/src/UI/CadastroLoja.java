@@ -20,7 +20,9 @@ import java.io.IOException;
 public class CadastroLoja {
     public static MaquinaEstadoConsole estadoConsole;
     public static MaquinaEstadoCadastro estadoCadastro;
-    public static MaquinaEstadoConsole telaUsuario;   
+    public static MaquinaEstadoConsole telaUsuario;  
+    public static String mensagemLog;
+    public static int acesso;
     /**
      * @param args
      * @throws java.io.IOException

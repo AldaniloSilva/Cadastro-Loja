@@ -14,7 +14,8 @@ public enum EnumArquivo {
     PEDIDO_TXT("Pedido.txt"),
     FUNCIONARIO_TXT("Funcionario.txt"),
     CLIENTE_TXT("Cliente.txt"),
-    PRODUTO_TXT("Produto.txt");
+    PRODUTO_TXT("Produto.txt"),
+    LOG_TXT("Log.txt");
 
     private final String descricao;
 

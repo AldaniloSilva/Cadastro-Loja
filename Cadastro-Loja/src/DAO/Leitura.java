@@ -54,7 +54,7 @@ public abstract class Leitura {
                 for (Entidade item : lista) {
                     System.out.println(
                             "Código:" + ((Cliente) item).getCodigo() + " - "
-                            + "Descricao:" + ((Cliente) item).getNome());
+                            + "Nome:" + ((Cliente) item).getNome());
                    
                                     }
                  System.out.println();

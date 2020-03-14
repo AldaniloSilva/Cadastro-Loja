@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 /**
@@ -19,36 +20,20 @@ import java.util.regex.Pattern;
 public class EntidadeDAO {
 
     //public static List<Funcionario> listaFunc = new ArrayList<>();
-
     public static void EscreverEmAqruivo(String arquivo, String dados) {
 
         try {
             try (FileWriter x = new FileWriter(arquivo, true)) {
                 //String gravaTeste = ;
-                x.write(dados +"\r\n");
+                x.write(dados + "\r\n");
             }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
     
-    //public static int ProximoId(){};
-/*
-    private static void LeFuncionario(String[] dados) {
-        //Esse método trabalha com a leitura de dados
-        Funcionario funcionario = new Funcionario();
-        funcionario.setCodigo(Integer.parseInt(dados[0]));
-        funcionario.setNome(dados[1]);
-        funcionario.setCargo(Integer.parseInt(dados[2]));
-        funcionario.setSenha(dados[3]);
-        listaFunc.add(funcionario);
-    }*/
+    
 
-    /*
-    private static String EscreveFuncionario (Funcionario func) {
-        //Esse método trabalha com escrita de dados
-        String dados;        
-    }*/
     public static void Read(String arquivo, Leitura classeLeitura) {
         //String conteudo = "";
         String sentenca[];
@@ -59,10 +44,11 @@ public class EntidadeDAO {
             String linha;
             try {
                 linha = lerArq.readLine();
-                if(linha !=null){
+                if (linha != null) {
                     sentenca = linha.split(Pattern.quote("|"));
-               // LeFuncionario(sentenca);
-                    classeLeitura.LerArquivo(sentenca);}
+                    // LeFuncionario(sentenca);
+                    classeLeitura.LerArquivo(sentenca);
+                }
 
                 while (linha != null) {
                     //conteudo += linha+"\r\n";                    
@@ -78,15 +64,17 @@ public class EntidadeDAO {
             } catch (IOException ex) {
                 System.out.println(ex);
                 System.out.println("Erro: Não foi possível ler o arquivo!");
-                          }
+            }
         } catch (FileNotFoundException ex) {
             System.out.println(ex);
-            System.out.println("Erro: Arquivo não encontrado!");           
+            System.out.println("Erro: Arquivo não encontrado!");
         }
     }
 
-    /*
-    private static void ConverterFuncionarios(String[] sentenca) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
+    public static void EscreveLog(String tipo, String texto) {
+        Date dataAtual = new Date();
+        tipo += "--> " + texto + " - " + dataAtual.toString();
+        EscreverEmAqruivo(EnumArquivo.LOG_TXT.getNameFile(), tipo);
+        
+    }
 }

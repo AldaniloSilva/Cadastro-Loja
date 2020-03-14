@@ -10,6 +10,7 @@ import static DAO.LeituraFuncionario.listaFunc;
 import Business.Funcionario;
 import Business.Acesso;
 import Business.Entidade;
+import static UI.CadastroLoja.acesso;
 
 /**
  *
@@ -17,7 +18,7 @@ import Business.Entidade;
  */
 public class EstadoConsoleLogin extends MaquinaEstadoConsole {
 
-    private int acesso;
+    //private int acesso;
 
     @Override
     public boolean Executa() {

@@ -5,13 +5,16 @@
  */
 package UI;
 
+import static Business.Acesso.RetornaCargo;
 import Business.Funcionario;
 import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreveLog;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
 import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraFuncionario;
 import static DAO.LeituraFuncionario.listaFunc;
+import static UI.CadastroLoja.mensagemLog;
 
 //import java.util.Scanner;
 /**
@@ -44,6 +47,11 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         funcionario.setCodigo(Leitura.IncluiId(listaFunc));
 
         EscreverEmAqruivo(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), ToString(funcionario));
+        System.out.println(atributo + " cadastrado com sucesso!");
+
+        mensagemLog = "Código: " + Integer.toString(funcionario.getCodigo()) + " - "
+                + "Nome: " + funcionario.getNome() + " - " + "Cargo: " + RetornaCargo(funcionario.getCargo());
+        EscreveLog("Funcionario", mensagemLog);
         EntidadeDAO.Read(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), new LeituraFuncionario());
     }
 
@@ -78,7 +86,7 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         //Aqui estamos aproveitando o mesmo EnumArquivo para ajudar
         //Na escolha da listagem do ListaTela, porém o arquivo não está sendo explorado
         System.out.println("***** Lista de " + atributo + " ******");
-        Leitura.ListaTela(listaFunc, EnumArquivo.FUNCIONARIO_TXT);        
+        Leitura.ListaTela(listaFunc, EnumArquivo.FUNCIONARIO_TXT);
     }
 
     public String ToString(Funcionario func) {

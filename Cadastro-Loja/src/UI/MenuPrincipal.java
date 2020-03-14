@@ -48,7 +48,7 @@ public class MenuPrincipal extends MaquinaEstadoConsole {
         System.out.println("1 - Login");
         try {
             opcao = in.nextInt();
-           // in.nextLine();
+            // in.nextLine();
         } catch (InputMismatchException e) {
             //System.out.println(e.toString());
             System.out.println("\n\n");
@@ -70,6 +70,10 @@ public class MenuPrincipal extends MaquinaEstadoConsole {
                 System.out.println("\n\n");
                 System.out.println("Opção Inválida!");
                 System.out.println();
+                System.out.println("***************************\n"
+                        + "*  ---- Menu Principal  ---- *\n"
+                        + "***************************"
+                );
                 UI.CadastroLoja.estadoConsole
                         = EnumEstadoConsole.MENU_PRINCIPAL.getClasse();
         }

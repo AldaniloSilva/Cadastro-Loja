@@ -5,14 +5,17 @@
  */
 package UI;
 
+import static Business.Acesso.RetornaCargo;
 import Business.Produto;
 import DAO.EntidadeDAO;
+import static DAO.EntidadeDAO.EscreveLog;
 import static DAO.EntidadeDAO.EscreverEmAqruivo;
 import DAO.EnumArquivo;
 import DAO.Leitura;
 import DAO.LeituraCliente;
 import DAO.LeituraProduto;
 import static DAO.LeituraProduto.listaProduto;
+import static UI.CadastroLoja.mensagemLog;
 //import java.util.Scanner;
 
 /**
@@ -39,6 +42,12 @@ public class TelaProduto extends MaquinaEstadoCadastro {
         produto.setCodigo(Leitura.IncluiId(listaProduto));
 
         EscreverEmAqruivo(EnumArquivo.PRODUTO_TXT.getNameFile(), ToString(produto));
+        System.out.println(atributo + " cadastrado com sucesso!");
+
+        mensagemLog = "Código: " + Integer.toString(produto.getCodigo()) + " - "
+                + "Descricao: " + produto.getDescricao();
+
+        EscreveLog("Produto", mensagemLog);
         EntidadeDAO.Read(EnumArquivo.PRODUTO_TXT.getNameFile(), new LeituraProduto());
 
     }
