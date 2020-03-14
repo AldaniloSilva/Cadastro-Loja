@@ -15,10 +15,7 @@ public enum EnumEstadoConsole {
     CADASTRO (new MenuCadastro()),
     MENU_VENDEDOR (new MenuVendedor()),
     MENU_GERENTE (new MenuGerente());
-    //CADASTRO_CLIENTE,
-    //CADASTRO_PEDIDO,
-    //CADASTRO_PRODUTO,
-    //CADASTRO_FUNCIONARIO;     
+    
     
     private final MaquinaEstadoConsole classe;
     

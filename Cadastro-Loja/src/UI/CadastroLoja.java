@@ -5,7 +5,7 @@
  */
 package UI;
 
-import Business.Entidade;
+
 import DAO.EntidadeDAO;
 import DAO.LeituraCliente;
 import DAO.LeituraFuncionario;

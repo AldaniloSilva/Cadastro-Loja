@@ -6,3 +6,4 @@
 6|Edu|0|123e
 7|fernando|0|789
 8|gustavo|1|147
+9|admin|0|admin
