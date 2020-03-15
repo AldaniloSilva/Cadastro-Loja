@@ -81,8 +81,7 @@ public class TelaPedido extends MaquinaEstadoCadastro {
 
     @Override
     public void Excluir() {
-        System.out.println("***** Excluir " + atributo + " ******");
-        int codigo = SolicitaCodigo(atributo);
+        System.out.print("Exclusão de Pedidos não está disponível");
     }
 
     @Override

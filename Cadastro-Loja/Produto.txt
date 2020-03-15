@@ -1,5 +1,6 @@
-1|bicicleta
+1|patinete
 2|moto
 3|carro
 4|submarino
-5|aviao
+5|caminhao
+6|onibus

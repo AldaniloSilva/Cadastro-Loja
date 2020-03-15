@@ -8,6 +8,7 @@ package UI;
 import Business.Acesso;
 import static UI.CadastroLoja.acesso;
 import static UI.CadastroLoja.estadoConsole;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -33,11 +34,18 @@ public class MenuGerente extends MaquinaEstadoConsole {
         System.out.println("3 - Pedidos");
         System.out.println("4 - Cliente");
         System.out.println("5 - Funcionários");
+        try {
+            UI.CadastroLoja.opcao = in.nextInt();
+            // in.nextLine();
+        } catch (InputMismatchException e) {
+            //System.out.println(e.toString());
+            System.out.println("\n\n");
+            System.out.println(">>>>>Digite APENAS números!<<<<<");
+            System.out.println();
+            return sair;
+        }
 
-        int opcao = in.nextInt();
-        in.nextLine();
-
-        switch (opcao) {
+        switch (UI.CadastroLoja.opcao) {
             case 0:
                 sair = true;
                 break;
@@ -86,6 +94,17 @@ public class MenuGerente extends MaquinaEstadoConsole {
                 UI.CadastroLoja.estadoConsole
                         = EnumEstadoConsole.CADASTRO.getClasse();
                 break;
+
+            default:
+                System.out.println("\n\n");
+                System.out.println("Opção Inválida!");
+                System.out.println();
+                System.out.println("***************************\n"
+                        + "*  ---- Menu Gerente  ---- *\n"
+                        + "***************************"
+                );
+                UI.CadastroLoja.estadoConsole
+                        = EnumEstadoConsole.MENU_GERENTE.getClasse();
         }
         return sair;
     }

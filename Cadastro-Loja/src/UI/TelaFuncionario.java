@@ -6,6 +6,7 @@
 package UI;
 
 import static Business.Acesso.RetornaCargo;
+import Business.Entidade;
 import Business.Funcionario;
 import DAO.EntidadeDAO;
 import static DAO.EntidadeDAO.EscreveLog;
@@ -15,6 +16,7 @@ import DAO.Leitura;
 import DAO.LeituraFuncionario;
 import static DAO.LeituraFuncionario.listaFunc;
 import static UI.CadastroLoja.mensagemLog;
+import java.util.ArrayList;
 
 //import java.util.Scanner;
 /**
@@ -52,6 +54,8 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         mensagemLog = "Código: " + Integer.toString(funcionario.getCodigo()) + " - "
                 + "Nome: " + funcionario.getNome() + " - " + "Cargo: " + RetornaCargo(funcionario.getCargo());
         EscreveLog("Funcionario", mensagemLog);
+        //4. Apague da memória os itens da lista
+        listaFunc = new ArrayList<>();
         EntidadeDAO.Read(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), new LeituraFuncionario());
     }
 
@@ -59,12 +63,19 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
     public void Excluir() {
         System.out.println("***** Excluir " + atributo + " ******");
         int codigo = SolicitaCodigo(atributo);
+
+        //1.Chama o método que quer excluir um elemento
+        EntidadeDAO.Excluir(codigo, listaFunc);
+
+        SobreEscreveArquivo();
     }
 
     @Override
     public void Alterar() {
         System.out.println("***** Alterar " + atributo + " ******");
         //Depois quando tiver funcionando Juntar esse método com o Incluir
+        funcionario.setCodigo(SolicitaCodigo(atributo));
+
         System.out.println("Digite o nome do " + atributo);
         funcionario.setNome(entrada.nextLine());
 
@@ -78,6 +89,17 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
         System.out.println("Digite a senha");
 
         funcionario.setSenha(entrada.nextLine());
+
+        //1.Primeiro substitui o nome
+        for (Entidade item : listaFunc) {
+            if (((Funcionario) item).getCodigo() == funcionario.getCodigo()) {
+                ((Funcionario) item).setNome(funcionario.getNome());
+                ((Funcionario) item).setCargo(funcionario.getCargo());
+                ((Funcionario) item).setSenha(funcionario.getSenha());
+                break;
+            }
+        }
+        SobreEscreveArquivo();
 
     }
 
@@ -94,10 +116,18 @@ public class TelaFuncionario extends MaquinaEstadoCadastro {
                 + "|" + func.getSenha();
     }
 
-}
+    private void SobreEscreveArquivo() {
+        //2. Apague o arquivo atual
+        EntidadeDAO.DeletarArquivo(EnumArquivo.FUNCIONARIO_TXT.getNameFile());
 
-//funcionario.setCodigo(listaFunc.size()+1);
-//System.out.println((listaFunc.get(listaFunc.size()-1)).getCodigo()+1);
-//funcionario.setCodigo((listaFunc.get(listaFunc.size() - 1)).getCodigo() + 1);
-//cadastro_loja.CadastroLoja.classeEntidade = EnumEntidade.FUNCIONARIO.getClasse();
-        //cadastro_loja.CadastroLoja.classeEntidade = funcionario;
+        //3. Grave os itens da lista
+        for (Entidade item : listaFunc) {
+            EntidadeDAO.EscreverEmAqruivo(EnumArquivo.FUNCIONARIO_TXT.getNameFile(),
+                    (ToString((Funcionario) item)));
+        }
+        //4. Apague da memória os itens da lista
+        listaFunc = new ArrayList<>();
+        EntidadeDAO.Read(EnumArquivo.FUNCIONARIO_TXT.getNameFile(), new LeituraFuncionario());
+    }
+
+}

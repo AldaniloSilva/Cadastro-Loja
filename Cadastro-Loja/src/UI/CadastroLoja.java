@@ -23,6 +23,7 @@ public class CadastroLoja {
     public static MaquinaEstadoConsole telaUsuario;  
     public static String mensagemLog;
     public static int acesso;
+    public static int opcao;
     /**
      * @param args
      * @throws java.io.IOException

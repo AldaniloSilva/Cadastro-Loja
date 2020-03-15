@@ -14,40 +14,17 @@ import java.util.Scanner;
  */
 public class MenuPrincipal extends MaquinaEstadoConsole {
 
-    /*
-    @Override
-    public boolean Executa(){
-        boolean sair = false;
-        Scanner in = new Scanner(System.in);
-        System.out.println("Bem-vindo!");
-        System.out.println("Indique a opção desejada!");
-        System.out.println("0 - Sair");
-        System.out.println("1 - Login");                  
-        int opcao = in.nextInt();
-        in.nextLine();
-        switch(opcao)
-        {
-            case 0:
-                sair = true;
-                break;
-            case 1:
-                  UI.CadastroLoja.estadoConsole = 
-                    EnumEstadoConsole.LOGIN.getClasse();
-                break;            
-        }
-        return sair;
-    }*/
-    @Override
+     @Override
     public boolean Executa() {
         boolean sair = false;
-        int opcao;
+        //int opcao;
         Scanner in = new Scanner(System.in);
         System.out.println("Bem-vindo!");
         System.out.println("Indique a opção desejada:");
         System.out.println("0 - Sair");
         System.out.println("1 - Login");
         try {
-            opcao = in.nextInt();
+            UI.CadastroLoja.opcao = in.nextInt();
             // in.nextLine();
         } catch (InputMismatchException e) {
             //System.out.println(e.toString());
@@ -57,7 +34,7 @@ public class MenuPrincipal extends MaquinaEstadoConsole {
             return sair;
         }
 
-        switch (opcao) {
+        switch (UI.CadastroLoja.opcao ) {
             case 0:
                 sair = true;
                 break;
